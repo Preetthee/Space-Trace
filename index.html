@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Space Trace: a story-driven investigation of humanity's abandoned equipment on the Moon.">
+  <title>Space Trace | Lunar Signal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="starfield" aria-hidden="true"></div>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Space Trace home">
+        <span class="brand-mark">✦</span>
+        <span>SPACE TRACE</span>
+      </a>
+      <div class="mission-status">
+        <span class="status-dot"></span>
+        <span>MISSION 01 / LUNAR SURFACE</span>
+      </div>
+    </header>
+
+    <section class="hero-panel">
+      <div class="hero-copy">
+        <p class="eyebrow">ABANDONED BUT NOT FORGOTTEN</p>
+        <h1>Someone left<br><em>a signal behind.</em></h1>
+        <p class="hero-description">Earth is missing. The Moon is not empty. Trace the objects humanity left behind and reconstruct the last story they tell.</p>
+        <button class="primary-button" id="begin-button">Begin investigation <span>→</span></button>
+      </div>
+      <div class="orbit-art" aria-label="Stylized Earth and Moon illustration" role="img">
+        <div class="orbit orbit-one"></div>
+        <div class="orbit orbit-two"></div>
+        <div class="moon"><span class="moon-crater crater-one"></span><span class="moon-crater crater-two"></span><span class="moon-crater crater-three"></span></div>
+        <div class="earth"><span></span></div>
+        <div class="signal-wave wave-one"></div>
+        <div class="signal-wave wave-two"></div>
+      </div>
+    </section>
+
+    <section class="game-panel hidden" id="game-panel">
+      <div class="panel-heading">
+        <div>
+          <p class="eyebrow">FIELD LOG / SITE 04</p>
+          <h2>Tranquility Base, 1969</h2>
+        </div>
+        <div class="progress-label"><span id="evidence-count">0</span>/3 traces recovered</div>
+      </div>
+
+      <div class="scene-layout">
+        <div class="lunar-scene" aria-label="Interactive lunar surface scene" role="img">
+          <div class="horizon-glow"></div>
+          <div class="ridge ridge-back"></div>
+          <div class="ridge ridge-front"></div>
+          <div class="flag-pole"><span class="flag"></span></div>
+          <button class="scene-object object-plaque" data-evidence="plaque" aria-label="Inspect the commemorative plaque"><span>+</span></button>
+          <button class="scene-object object-seismometer" data-evidence="seismometer" aria-label="Inspect the passive seismic experiment"><span>+</span></button>
+          <button class="scene-object object-camera" data-evidence="camera" aria-label="Inspect the television camera"><span>+</span></button>
+          <div class="astronaut-shadow"></div>
+          <p class="scene-caption">Use the markers to inspect what remains.</p>
+        </div>
+
+        <aside class="evidence-drawer">
+          <div class="drawer-header">
+            <span>RECOVERED EVIDENCE</span>
+            <span class="signal-bars">▂▄▆</span>
+          </div>
+          <div id="evidence-list" class="evidence-list">
+            <p class="empty-state">No traces logged yet.<br>Something is waiting in the dust.</p>
+          </div>
+          <div class="log-entry" id="log-entry">
+            <span class="log-time">LIVE SIGNAL</span>
+            <p>Scan the site to begin reconstructing the human timeline.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="timeline-panel hidden" id="timeline-panel">
+      <div class="panel-heading">
+        <div>
+          <p class="eyebrow">RECONSTRUCTION COMPLETE</p>
+          <h2>The trace is bigger than the object.</h2>
+        </div>
+        <span class="completion-mark">✓</span>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <span class="timeline-year">1969</span>
+          <div><strong>A footprint in the dust</strong><p>Apollo 11 leaves instruments that will outlive the mission.</p></div>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">1971</span>
+          <div><strong>The Moon keeps moving</strong><p>Seismic readings reveal that the Moon is not a silent world.</p></div>
+        </div>
+        <div class="timeline-item highlight">
+          <span class="timeline-year">NOW</span>
+          <div><strong>A signal returns</strong><p>Long after the voices stop, the evidence still points back to Earth.</p></div>
+        </div>
+      </div>
+      <div class="final-message">
+        <span class="quote-mark">“</span>
+        <p>They did not disappear without a trace. They left a map of themselves in the places they touched.</p>
+      </div>
+      <button class="secondary-button" id="reset-button">Replay investigation</button>
+    </section>
+
+    <footer>
+      <span>SPACE TRACE / PROTOTYPE 01</span>
+      <span>FICTION × NASA MISSION DATA</span>
+      <a href="https://www.nasa.gov/mission_pages/apollo/missions/apollo11.html" target="_blank" rel="noreferrer">Source: NASA Apollo 11 ↗</a>
+    </footer>
+  </main>
+  <div class="modal-backdrop hidden" id="evidence-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="evidence-modal">
+      <button class="close-button" id="close-modal" aria-label="Close evidence details">×</button>
+      <p class="eyebrow" id="modal-type">EVIDENCE RECOVERED</p>
+      <h2 id="modal-title"></h2>
+      <p id="modal-description"></p>
+      <div class="source-note"><span>NASA DATA NOTE</span><p id="modal-source"></p></div>
+      <button class="primary-button modal-continue" id="modal-continue">Add to field log <span>+</span></button>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

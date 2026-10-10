@@ -1,0 +1,71 @@
+:root {
+  --ink: #f4f0e8;
+  --muted: #9698a3;
+  --deep: #090a0f;
+  --panel: rgba(18, 19, 27, .82);
+  --line: rgba(244, 240, 232, .13);
+  --orange: #f26a43;
+  --yellow: #f6c85f;
+  --blue: #7b9cff;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--deep);
+  color: var(--ink);
+  font-family: "Space Grotesk", sans-serif;
+  margin: 0;
+  min-width: 320px;
+}
+button, a { font: inherit; }
+button { cursor: pointer; }
+.starfield {
+  background-image: radial-gradient(#fff 1px, transparent 1px), radial-gradient(#7b9cff 1px, transparent 1px);
+  background-position: 0 0, 60px 90px;
+  background-size: 150px 150px, 210px 210px;
+  inset: 0;
+  opacity: .14;
+  pointer-events: none;
+  position: fixed;
+}
+.app-shell { margin: auto; max-width: 1240px; padding: 0 48px; position: relative; }
+.topbar, footer { align-items: center; display: flex; justify-content: space-between; }
+.topbar { border-bottom: 1px solid var(--line); padding: 25px 0; }
+.brand { color: var(--ink); font-size: 13px; font-weight: 700; letter-spacing: .18em; text-decoration: none; }
+.brand-mark { color: var(--orange); font-size: 22px; margin-right: 8px; vertical-align: -2px; }
+.mission-status, footer { color: var(--muted); font-family: "DM Mono", monospace; font-size: 10px; letter-spacing: .1em; }
+.status-dot { background: #8de3a1; border-radius: 100%; box-shadow: 0 0 11px #8de3a1; display: inline-block; height: 6px; margin-right: 8px; width: 6px; }
+.hero-panel { align-items: center; display: grid; gap: 7vw; grid-template-columns: .9fr 1fr; min-height: 605px; }
+.eyebrow { color: var(--orange); font-family: "DM Mono", monospace; font-size: 10px; letter-spacing: .16em; margin: 0 0 20px; }
+h1, h2, p { margin-top: 0; }
+h1 { font-size: clamp(48px, 6vw, 86px); letter-spacing: -.07em; line-height: .92; margin-bottom: 29px; }
+h1 em { color: var(--yellow); font-style: normal; }
+.hero-description { color: var(--muted); font-size: 16px; line-height: 1.65; max-width: 430px; }
+.primary-button, .secondary-button { border: 0; font-size: 12px; font-weight: 700; letter-spacing: .08em; margin-top: 24px; padding: 16px 21px; text-transform: uppercase; transition: transform .2s, background .2s; }
+.primary-button { background: var(--orange); color: #170d0a; }
+.primary-button:hover { background: #ff805c; transform: translateY(-2px); }
+.primary-button span { font-size: 20px; margin-left: 20px; vertical-align: -2px; }
+.secondary-button { background: transparent; border: 1px solid var(--line); color: var(--ink); }
+.secondary-button:hover { border-color: var(--yellow); color: var(--yellow); }
+.orbit-art { height: 400px; position: relative; }
+.orbit { border: 1px solid rgba(123,156,255,.28); border-radius: 50%; left: 50%; position: absolute; top: 50%; transform: translate(-50%,-50%) rotate(-28deg); }
+.orbit-one { height: 220px; width: 450px; }.orbit-two { height: 300px; width: 600px; transform: translate(-50%,-50%) rotate(26deg); }
+.moon, .earth { border-radius: 50%; position: absolute; }
+.moon { background: radial-gradient(circle at 34% 27%, #d4d6d8, #797d88 70%); box-shadow: 0 0 55px rgba(208,211,218,.22); height: 110px; left: 57%; top: 20%; width: 110px; }
+.moon-crater { background: rgba(57,60,68,.25); border-radius: 50%; display: block; height: 16px; position: absolute; width: 24px; }.crater-one { left: 20px; top: 27px; }.crater-two { bottom: 21px; right: 20px; transform: rotate(20deg); }.crater-three { height: 8px; left: 64px; top: 60px; width: 10px; }
+.earth { background: radial-gradient(circle at 38% 35%, #89a5ed, #252b67 64%, #11142d); bottom: 15%; height: 175px; left: 23%; overflow: hidden; width: 175px; }.earth span { background: #99b787; border-radius: 55% 45% 60% 40%; height: 50px; left: 30px; opacity: .7; position: absolute; top: 40px; transform: rotate(-28deg); width: 85px; }
+.signal-wave { border: 1px solid var(--orange); border-radius: 50%; left: 47%; opacity: .6; position: absolute; top: 51%; transform: translate(-50%,-50%); }.wave-one { height: 190px; width: 290px; }.wave-two { height: 260px; width: 420px; opacity: .22; }
+.game-panel, .timeline-panel { background: var(--panel); border: 1px solid var(--line); margin-bottom: 80px; padding: 36px; }
+.hidden { display: none !important; }
+.panel-heading { align-items: end; display: flex; justify-content: space-between; margin-bottom: 28px; }.panel-heading h2 { font-size: clamp(25px, 4vw, 39px); letter-spacing: -.05em; margin-bottom: 0; }.progress-label { color: var(--yellow); font-family: "DM Mono", monospace; font-size: 11px; }
+.scene-layout { display: grid; gap: 20px; grid-template-columns: 1.6fr 1fr; }
+.lunar-scene { background: linear-gradient(#172441 0%, #29273a 50%, #b4a895 51%, #575259 100%); min-height: 425px; overflow: hidden; position: relative; }
+.horizon-glow { background: #f0bd77; border-radius: 50%; filter: blur(30px); height: 150px; opacity: .28; position: absolute; right: 15%; top: 28%; width: 250px; }.ridge { background: #858087; border-radius: 50% 50% 0 0; bottom: 14%; height: 135px; position: absolute; transform: skew(-20deg); width: 120%; }.ridge-back { background: #4b4855; bottom: 27%; left: -5%; }.ridge-front { bottom: -22%; left: -5%; width: 150%; }
+.flag-pole { background: #c2a171; bottom: 28%; height: 160px; left: 20%; position: absolute; width: 3px; }.flag { background: var(--orange); display: block; height: 25px; position: absolute; top: 10px; width: 49px; }.flag:after { border-bottom: 12px solid transparent; border-left: 12px solid var(--orange); border-top: 13px solid transparent; content: ""; position: absolute; right: -12px; }
+.scene-object { background: var(--yellow); border: 3px solid rgba(255,255,255,.5); border-radius: 50%; box-shadow: 0 0 0 8px rgba(246,200,95,.15), 0 0 25px var(--yellow); height: 27px; padding: 0; position: absolute; width: 27px; z-index: 2; }.scene-object span { color: #282016; font-size: 18px; line-height: 18px; }.scene-object:hover { transform: scale(1.2); }.object-plaque { bottom: 28%; left: 42%; }.object-seismometer { bottom: 31%; right: 28%; }.object-camera { bottom: 37%; right: 14%; }.astronaut-shadow { background: rgba(26,24,30,.5); border-radius: 50%; bottom: 13%; height: 20px; left: 62%; position: absolute; transform: rotate(-13deg); width: 75px; }.scene-caption { bottom: 15px; color: rgba(255,255,255,.58); font-family: "DM Mono", monospace; font-size: 10px; left: 17px; position: absolute; }
+.evidence-drawer { background: rgba(8,9,14,.65); border: 1px solid var(--line); min-height: 425px; padding: 21px; }.drawer-header { border-bottom: 1px solid var(--line); color: var(--muted); display: flex; font-family: "DM Mono", monospace; font-size: 10px; justify-content: space-between; padding-bottom: 17px; }.signal-bars { color: var(--orange); letter-spacing: -3px; }.evidence-list { min-height: 235px; padding-top: 15px; }.empty-state { color: #777985; font-size: 13px; line-height: 1.6; }.evidence-card { border-bottom: 1px solid var(--line); cursor: pointer; padding: 13px 0; }.evidence-card strong { display: block; font-size: 13px; margin-bottom: 4px; }.evidence-card span { color: var(--muted); font-family: "DM Mono", monospace; font-size: 9px; }.log-entry { border-left: 2px solid var(--orange); color: var(--muted); font-size: 12px; line-height: 1.5; padding-left: 13px; }.log-entry p { margin: 5px 0 0; }.log-time { color: var(--orange); font-family: "DM Mono", monospace; font-size: 9px; }
+.completion-mark { align-items: center; border: 1px solid #8de3a1; border-radius: 50%; color: #8de3a1; display: flex; font-size: 24px; height: 45px; justify-content: center; width: 45px; }.timeline { border-left: 1px solid var(--line); margin: 35px 0 40px 17px; }.timeline-item { display: flex; gap: 24px; padding: 0 0 32px 28px; position: relative; }.timeline-item:before { background: var(--orange); border-radius: 50%; content: ""; height: 9px; left: -5px; position: absolute; top: 5px; width: 9px; }.timeline-year { color: var(--yellow); font-family: "DM Mono", monospace; font-size: 11px; width: 45px; }.timeline-item strong { font-size: 15px; }.timeline-item p { color: var(--muted); font-size: 13px; line-height: 1.5; margin: 6px 0 0; }.timeline-item.highlight:before { background: #8de3a1; box-shadow: 0 0 12px #8de3a1; }.final-message { border: 1px solid var(--line); margin: 0 auto; max-width: 580px; padding: 26px 35px; position: relative; text-align: center; }.quote-mark { color: var(--orange); font-family: Georgia, serif; font-size: 60px; left: 17px; line-height: 1; position: absolute; top: 12px; }.final-message p { font-size: 18px; line-height: 1.5; margin: 0; }.timeline-panel > .secondary-button { display: block; margin: 30px auto 0; }
+footer { border-top: 1px solid var(--line); flex-wrap: wrap; gap: 14px; padding: 22px 0; }footer a { color: var(--muted); text-decoration: none; }footer a:hover { color: var(--yellow); }
+.modal-backdrop { align-items: center; background: rgba(3,4,7,.82); display: flex; inset: 0; justify-content: center; padding: 20px; position: fixed; z-index: 5; }.evidence-modal { background: #171821; border: 1px solid var(--line); max-width: 520px; padding: 40px; position: relative; width: 100%; }.close-button { background: transparent; border: 0; color: var(--muted); font-size: 28px; position: absolute; right: 18px; top: 12px; }.evidence-modal h2 { font-size: 31px; letter-spacing: -.04em; margin-bottom: 15px; }.evidence-modal > p:not(.eyebrow) { color: var(--muted); font-size: 14px; line-height: 1.7; }.source-note { background: rgba(123,156,255,.08); border-left: 2px solid var(--blue); margin-top: 22px; padding: 13px 16px; }.source-note span { color: var(--blue); font-family: "DM Mono", monospace; font-size: 9px; }.source-note p { color: var(--muted); font-size: 12px; line-height: 1.5; margin: 7px 0 0; }.modal-continue { margin-top: 22px; }
+@media (max-width: 780px) { .app-shell { padding: 0 20px; }.mission-status { display: none; }.hero-panel { grid-template-columns: 1fr; min-height: 700px; padding-top: 65px; }.orbit-art { height: 270px; margin-top: -20px; transform: scale(.8); }.game-panel, .timeline-panel { padding: 22px 16px; }.scene-layout { grid-template-columns: 1fr; }.lunar-scene, .evidence-drawer { min-height: 350px; }.evidence-list { min-height: 150px; }.panel-heading { align-items: start; flex-direction: column; gap: 15px; }.final-message { padding: 26px 23px; }.final-message p { font-size: 16px; } }
